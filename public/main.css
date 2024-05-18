@@ -180,18 +180,30 @@
     background-color: orange;
     padding: 5px;
     margin-bottom: 10px;
-    color: black;
-    font-weight: bold;
+    color: rgb(43, 43, 43);
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
     text-align: left;
-    width: 120px; /* Adjust based on your layout needs */
+    text-transform: capitalize;
 }
 
 .value {
     padding: 5px;
     margin-bottom: 10px;
     margin-left: 20px; /* Space between labels and values */
-    background-color: orange;
+    
     text-align: right;
+    color: rgb(43, 43, 43);
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-transform: capitalize;
+    
 }
 
 .available {
@@ -666,7 +678,7 @@
 .order-now {
     /* ORDER NOW */
     position: relative;
-    width: 69px;
+    width: 100px;
     height: 14px;
     
     /* Yellow */
@@ -677,4 +689,34 @@
     line-height: 14px;
     letter-spacing: 0%;
     text-align: left;
+}
+
+
+.elipse12 {
+    /* Background Image */
+    position: absolute;
+    width: 971px;
+    height: 454.33px;
+    left: 339px;
+    right: -339px;
+    top: 3px;
+    bottom: 5.76px;
+}
+
+.elipse15 {
+    /* Ellipse 15 */
+    position: absolute;
+    width: 16.02px;
+    height: 15.57px;
+    margin-left: 150.05px;
+    top: 40.86px;
+    
+}
+.elipse16 {
+    /* Ellipse 16 */
+    position: absolute;
+    width: 16.02px;
+    height: 15.57px;
+    margin-left: 200px;
+    top: 422.22px;
 }

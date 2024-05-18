@@ -51,47 +51,37 @@
             <div class="margener"></div>
             <div class="left-2">
                 <div class="profile-info">
-                    <div class="info-labels">
-                        <div class="label">Age:</div>
+                    <div class="row">
+                        <p class="label">Age:</p>
                         <div class="label">Residence:</div>
                         <div class="label">Freelance:</div>
                         <div class="label">Address:</div>
                     </div>
                     <div class="info-values">
-                        <div class="value">19</div>
-                        <div class="value">BD</div>
+                        <div class="value"><%=user.age%></div>
+                        <div class="value"><%=user.residence%></div>
                         <div class="value available">Available</div>
-                        <div class="value">Incheon,South Korea</div>
+                        <div class="value"><%=user.address%></div>
                     </div>
             
             </div>
             <div class="margener"></div>
             <div class="left-3">
                 <div class="language">Languages</div>
-                <div class="info-labels profile-info">
-                    <div class="languages">Uzbek</div>
-                    <div class="rectangle1">
-                        <div class="rectangle2"></div>
-                    </div>
-                    <div class="languages">English</div>
-                    <div class="rectangle1">
-                        <div class="rectangle3"></div>
-                    </div>
-                    <div class="languages">Russian</div>
-                    <div class="rectangle1">
-                        <div class="rectangle4"></div>
-                    </div>
-                </div>
-                <div class="right-columns">
-                    <div></div>
-                </div>
-            </div>
-            <div class="margener"></div>
-            <div class="left-4">
-                <div class="skill">Skills</div>
                 <div class="row">
                     <div class="skills">
-                        Html
+                        <%=user.languages[0]%>
+                    </div> 
+                    <div class="percentage">
+                        100%
+                    </div>
+                </div>
+                <div class="rectangle1">
+                    <div class="rectangle2"></div>
+                </div>
+                <div class="row">
+                    <div class="skills">
+                        <%=user.languages[1]%>
                     </div> 
                     <div class="percentage">
                         90%
@@ -102,7 +92,58 @@
                 </div>
                 <div class="row">
                     <div class="skills">
-                        CSS
+                        <%=user.languages[2]%>
+                    </div> 
+                    <div class="percentage">
+                        85%
+                    </div>
+                </div>
+                <div class="rectangle1">
+                    <div class="rectangle4"></div>
+                </div>
+                <div class="right-columns">
+                    <div></div>
+                </div>
+            </div>
+            <div class="margener"></div>
+            <div class="left-4">
+                <div class="skill">Skills</div>
+                <div class="row">
+                    <div class="skills">
+                        <%=user.skills[0]%>
+                    </div> 
+                    <div class="percentage">
+                        100%
+                    </div>
+                </div>
+                <div class="rectangle1">
+                    <div class="rectangle2"></div>
+                </div>
+                <div class="row">
+                    <div class="skills">
+                        <%=user.skills[1]%>
+                    </div> 
+                    <div class="percentage">
+                        90%
+                    </div>
+                </div>
+                <div class="rectangle1">
+                    <div class="rectangle3"></div>
+                </div>
+                <div class="row">
+                    <div class="skills">
+                        <%=user.skills[2]%>
+                    </div> 
+                    <div class="percentage">
+                        90%
+                    </div>
+                </div>
+                <div class="rectangle1">
+                    <div class="rectangle4"></div>
+                </div>
+                <div class="row">
+                    <div class="skills">
+                        <%=user.skills[3]%>
                     </div> 
                     <div class="percentage">
                         85%
@@ -113,36 +154,14 @@
                 </div>
                 <div class="row">
                     <div class="skills">
-                        JS
-                    </div> 
-                    <div class="percentage">
-                        80%
-                    </div>
-                </div>
-                <div class="rectangle1">
-                    <div class="rectangle3"></div>
-                </div>
-                <div class="row">
-                    <div class="skills">
-                        PHP
-                    </div> 
-                    <div class="percentage">
-                        75%
-                    </div>
-                </div>
-                <div class="rectangle1">
-                    <div class="rectangle3"></div>
-                </div>
-                <div class="row">
-                    <div class="skills">
-                        World Press
+                        <%=user.skills[4]%>
                     </div> 
                     <div class="percentage">
                         85%
                     </div>
                 </div>
                 <div class="rectangle1">
-                    <div class="rectangle3"></div>
+                    <div class="rectangle4"></div>
                 </div>
             </div>
             <div class="margener"></div>
@@ -152,48 +171,52 @@
                 </div>
                 <div class="row" style="margin-top: 15px;">
                     <div>
-                        <img src="icon/two_rectangle.svg">
+                        <img src="icon/two_rectangle.svg" style="margin-left: -20px;">
+                        <div class="extra" style="margin-top: -20px;"><%=user.extra_skills[0]%></div>
                     </div>
-                    <div class="extra">Bootstrap, Materialize</div>
-                </div>
-                <div class="row" style="margin-top: 15px;">
                     <div>
-                        <img src="icon/two_rectangle.svg">
-                        
+                        <img src="icon/two_rectangle.svg" style="margin-left: -20px;">
+                        <div class="extra" style="margin-top: -20px;"><%=user.extra_skills[1]%></div>
                     </div>
-                    <div class="extra">Stylus,Saas,Less</div>
-                </div>
-                <div class="row" style="margin-top: 15px;">
                     <div>
-                        <img src="icon/two_rectangle.svg">
+                        <img src="icon/two_rectangle.svg" style="margin-left: -20px;">
+                        <div class="extra" style="margin-top: -20px;"><%=user.extra_skills[2]%></div>
                     </div>
-                    <div class="extra">Gulp,Wepback,Grunt</div>
-                </div>
-                <div class="row" style="margin-top: 15px;">
                     <div>
-                        <img src="icon/two_rectangle.svg">
+                        <img src="icon/two_rectangle.svg" style="margin-left: -20px;">
+                        <div class="extra" style="margin-top: -20px;"><%=user.extra_skills[3]%></div>
                     </div>
-                    <div class="extra">Git Knowledge</div>
+                    
                 </div>
+               
             </div>
             <div class="margener"></div>
           </div>
         
         </div>
         <div class="mid_frame">
-            <div class="mid-frame-1">
-                <div class="image"><img src="icon/big_image.svg"></div>
+            <div class="mid-frame-1"> 
+                <div>
+                    <img src="btn_icons/elipse15.svg" style="left: -100px;" class="elipse15">
+                    <img src="btn_icons/elipse16.svg" style="left: -100px;" class="elipse16">
+                    <img src="btn_icons/elipse12.svg"  class="elipse16" style="margin-left: 550px; margin-top: -400px;">
+                    <img src="btn_icons/elipse12.svg"  class="elipse16" style="margin-left: 550px;">
+                    <img src="btn_icons/rectangle52.svg"  class="elipse16" style="margin-left: 400px; margin-top: -100px;">
+                    <img src="btn_icons/polygon1.svg" style="left: 750px;" class="elipse16">
+                    <img src="btn_icons/rectangle51.svg"  class="elipse16" style="margin-left: 920px; margin-top: -350px;">
+                </div>           
+                <div class="image"><img src="icon/big_image.svg" style="margin-top: 15px;"></div>
                 <div class="text">Doctor neurologist
                     in OHSU Hospital
                 </div>
-                <div class="little-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</div>
-                <div class="button">HIRE ME -></div>
+                <div class="little-text"><%=user.about_me%></div>
+                <div class="button">HIRE ME →</div>
             </div>
             <div class="mid-frame-2">
                 <div>
                     <p class="services" m>My Services</p>
                     <div class="col-lg-6 mx-auto" style="margin-top: 25px;">
-                      <p class="lead mb-4" style="font-family:Inter; font-size: 15px;font-weight: 400;line-height: 24px;letter-spacing: 0%;">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                      <p class="lead mb-4" style="font-family:Inter; font-size: 15px;font-weight: 400;line-height: 24px;letter-spacing: 0%;"><%=user.sevice_decsription%></p>
         
                     </div>
                 </div>
