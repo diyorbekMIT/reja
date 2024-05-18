@@ -1,4 +1,19 @@
 {
     "name" : "Steve",
-    "profession" : "Software Engineer"
+    "profession" : "Software Engineer",
+    "age" : "20",
+    "residence" : "Uzbekistan",
+    "address" : "South Korea",
+    "languages" : ["Uzbek", "English", "Russian"],
+    "skills" : ["HTML", "CSS", "Js", "NodeJS", "Python"],
+    "extra_skills" : ["Bootstrap,Materialize", "Syling, SASS", "Django, Flask", "GIT knowledge"],
+    "work_place": "IT Company",
+    "sevice_decsription" : "Hallolik foydadan ustun",
+    "about_me" : "Nothing to say",
+    "city" : "Incheon",
+    "title" : ["Flower", "Seedlings", "Gardener", "Old", "New"],
+    "flower_desc" : ["What is a flower?", "What is a seeding?", "Who is Gardener"],
+    "flower_price" : ["15$", "25$", "12$", "20$", "35$", "30$", "22$", "19$", "9$"],
+    "famous_words" : "Never give up",
+    "famous_name" : "Elon Musk"
 }
