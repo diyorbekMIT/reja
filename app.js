@@ -1,6 +1,7 @@
 console.log("Web serverni boshlash");
 const exp = require('constants');
 const express = require('express');
+
 const app = express();
 
 const db = require("./server").db("Reja");
@@ -16,9 +17,16 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 app.post("/create-item", (req, res) => {
+  const new_reja = req.body.reja;
   console.log(req.body);
-  
-})
+  db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
+    if (err) console.log(err);
+    else {
+      res.end("success");
+    }
+  });
+});
+
 
 // 4: Running code
 app.get("/author", (req,res) => {
@@ -35,20 +43,18 @@ app.get("/author", (req,res) => {
   });
 });
 
-app.get("/", (req,res) => {
-    res.render("reja", function(req, res) {
-        db.collection("plans").
-        find()
-        .toArray((err,data) => {
-          if (err) {
-            console.log(err);
-            res.end("Something went wrong");
-          } else {
-            console.log(data);
-            res.render("reja", {items: data});
-          }
-        })
+app.get("/", (req, res) => {
+  console.log("users entered /");
+  db.collection("plans")
+    .find()
+    .toArray((err, data) => {
+      if (err) {
+        console.log(err);
+        res.end("something went wrong");
+      } else {
+        res.render('reja', {items: data})
+      }
     });
-  });
+});
   
 module.exports = app;
