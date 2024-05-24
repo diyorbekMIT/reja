@@ -6,22 +6,22 @@
 //3ni return qiladi.
 
 
-function letterCount (letter, word) {
-    if (typeof letter === 'string' && typeof word === 'string'){
-        let count = 0;
-        for (let i = 0; i < word.length; i++) {
-            if (word[i] == letter){
-                count++;
-            };
-            
-        }
-        return count;
-    } else {
-        return "Bunday harf ishtrok etmagan yoki argumentlar notogri kiritilgan";
-    };
-};
+//function letterCount (letter, word) {
+//    if (typeof letter === 'string' && typeof word === 'string'){
+//        let count = 0;
+//        for (let i = 0; i < word.length; i++) {
+//            if (word[i] == letter){
+//                count++;
+//            };
+//            
+//        }
+//        return count;
+//    } else {
+//        return "Bunday harf ishtrok etmagan yoki argumentlar notogri kiritilgan";
+//    };
+//};
 
-console.log(letterCount('e', 'engineer'));
+//console.log(letterCount('e', 'engineer'));
 
 //console.log("Jack Ma maslahatlari");
 //const list = [
@@ -96,3 +96,40 @@ console.log(letterCount('e', 'engineer'));
 //}
 
 //run();
+
+//B task
+//B-TASK: 
+
+//Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+//MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
+
+function numberCounter(string) {
+    let count = 0;
+    for (let i = 0; i < string.length; i++) {
+       switch (string[i]) {
+        case '0': count ++;
+        break;
+        case '1': count ++;
+        break;
+        case '2': count ++;
+        break;
+        case '3': count ++;
+        break;
+        case '4': count ++;
+        break;
+        case '5': count ++;
+        break;
+        case '6': count ++;
+        break;
+        case '7': count ++;
+        break;
+        case '8': count ++;
+        break;
+        case '9': count ++;
+        break;
+       }
+    }
+    return count;
+}   
+console.log(numberCounter("ad2a54y79wet0sfgb9"));
+
