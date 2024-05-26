@@ -1,60 +1,58 @@
 console.log("Web serverni boshlash");
-const exp = require('constants');
 const express = require('express');
+const fs = require('fs');
 
 const app = express();
+const db = require("./server").db(); // Assuming server.js correctly exports the database connection
 
-const db = require("./server").db("Reja");
+let user;
+fs.readFile("./database/user.json", "utf-8", (err, data) => {
+    if (err) {
+        console.log("Error: ", err);
+    } else {
+        user = JSON.parse(data);
+    }
+});
 
-// 1: Kirish code
+// Middleware
 app.use(express.static('public'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
-// 2: Session code
-// 3 Views code
+// View Engine
 app.set("views", "views");
 app.set("view engine", "ejs");
 
+// Routes
 app.post("/create-item", (req, res) => {
-  const new_reja = req.body.reja;
-  console.log(req.body);
-  db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    if (err) console.log(err);
-    else {
-      res.end("success");
-    }
-  });
+    console.log("user entered create-item");
+    const new_reja = req.body.reja;
+    db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
+        if (err) {
+            console.log("Database error:", err);
+            return res.status(500).send("Database error");
+        }
+        console.log(data.ops);
+        res.json(data.ops[0]);
+    });
 });
 
-
-// 4: Running code
-app.get("/author", (req,res) => {
-  res.render("author");
-  const new_reja = req.body.reja;
-  db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end("Something went wrong");
-    } else {
-        console.log("Success");
-        res.end("Success");
-    };
-  });
+app.get("/author", (req, res) => {
+    res.render("author", { user: user });
 });
 
 app.get("/", (req, res) => {
-  console.log("users entered /");
-  db.collection("plans")
-    .find()
-    .toArray((err, data) => {
-      if (err) {
-        console.log(err);
-        res.end("something went wrong");
-      } else {
-        res.render('reja', {items: data})
-      }
-    });
+    console.log("users entered /");
+    db.collection("plans")
+        .find()
+        .toArray((err, data) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send("Something went wrong");
+            }
+            res.render('reja', { items: data });
+        });
 });
-  
+
+// Export the app
 module.exports = app;
