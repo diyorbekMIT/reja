@@ -1,5 +1,4 @@
-
-let createField = document.getElementById("create-field");
+const createField = document.getElementById("create-field");
 
 function itemTemplate(item) {
     return `
@@ -22,6 +21,24 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
             createField.focus();
         })
         .catch((err) => {
-            console.log("Iltimos qaytatdan harakat qiling", err);
+            console.error("Error creating item:", err);
+            alert("Iltimos qaytatdan harakat qiling");
         });
+});
+
+document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("delete-me")) {
+        if (confirm("Aniq ochirmoqchimisiz?")) {
+            const itemId = e.target.getAttribute("data-id");
+            axios.post("/delete-item", { id: itemId })
+                .then((response) => {
+                    console.log(response.data);
+                    e.target.parentElement.parentElement.remove();
+                })
+                .catch((err) => {
+                    console.error("Error deleting item:", err);
+                    alert("Iltimos qaytatdan harakat qiling");
+                });
+        }
+    }
 });

@@ -1,135 +1,60 @@
-//A TASK 
-//Shunday 2 parametrli function tuzing, 
-//hamda birinchi parametrdagi letterni 
-//ikkinchi parametrdagi sozdan qatnashga sonini return qilishi kerak boladi.
-//MASALAN countLetter("e", "engineer") 
-//3ni return qiladi.
+// 2024-05-25
+// MIT 14 TASK-C
 
+// Shop nomli class tuzing, va bu class 3 xill parametr qabul qilsin.
+// Hamda classning quyidagdek 3'ta metodi bo'lsin:
 
-//function letterCount (letter, word) {
-//    if (typeof letter === 'string' && typeof word === 'string'){
-//        let count = 0;
-//        for (let i = 0; i < word.length; i++) {
-//            if (word[i] == letter){
-//                count++;
-//            };
-//            
-//        }
-//        return count;
-//    } else {
-//        return "Bunday harf ishtrok etmagan yoki argumentlar notogri kiritilgan";
-//    };
-//};
+// 1) qoldiq
+// 2) sotish
+// 3) qabul
 
-//console.log(letterCount('e', 'engineer'));
+// Har bir metod ishga tushgan vaqtda log qilinsin
 
-//console.log("Jack Ma maslahatlari");
-//const list = [
-//    "Yaxshi talaba boling",
-//    "togri boshliq tanlang",
-//    "uzingiznga ishlashingizni boshlang",
-//    "siz kuchli bolgan narsalarni qiling",
-//    "yoshlarga investitsiya qiling",
-//    "endi dam oling, foydasi yoq endi"
-//];
+// MASALAN:
+// const shop = new Shop(4, 5, 2)
 
-//Callback 
-//function maslahat_bering (a, callback) {
-//    if (typeof a !== "number") callback ("Insert a number", null);
-//    else if (a <= 20) callback (null, list[0]);
-//    else if (a < 20 && a <= 30) callback (null, list[1]);
-//    else if (a < 20 && a <= 40) callback (null, list[2]);
-//    else if (a < 20 && a <= 50) callback (null, list[3]);
-//    else if (a < 20 && a <= 60) callback (null, list[4]);
-//    else {
-//        setInterval(function () {
-//            callback(null, list[5]);
-//        },1000);
-//    }
-//}
+// shop.qoldiq();
+// natija qaytishi kerak: Hozir 20: 40'da 4'ta non, 5'ta lag'mon va 2'ta cola mavjud
 
-//console.log("passed here 0");
-//maslahat_bering(70, (err, data) => {
-//    if (err) console.oog ("Error:", err);
-//    else {
-//        console.log(data);
-//    }
-//});
-//console.log("passed here1 ");
+// shop.sotish("non", 3); & shop.qabul("cola", 4); & shop.qoldiq();
+// Natija qaytishi kerak: Hozir 20:50da 1ta non, 5ta lag'mon va 6ta cola mavjud!
 
-//ASYNC function
-//function maslahat_bering (a, callback) {
-//   if (typeof a !== "number") callback ("Insert a number", null);
- //   else if (a <= 20) return list[0];
-//    else if (a > 20 && a <= 30) return list[1];
-//    else if (a > 20 && a <= 40) return list[2];
-//    else if (a > 20 && a <= 50) return list[3];
-//    else if (a > 20 && a <= 60) return list[4];
-//    else {
-//       return new Promise ((resolve, reject) => {
-//           setTimeout (() => {
-//                resolve(list[5]);
-//            }, 5000);
-//        });
-//    }//
-//}
+const moment = require("moment");
+class Shop {
+   constructor(non, lagmon, cola) {
+      this.non = non;
+      this.lagmon = lagmon;
+      this.cola = cola;
+   }
 
-//then/catch
-//console.log("passed here");
-//maslahat_bering(65)
-//   .then((data) => {
-//       console.log("javob:", data);
-//   })
-//   .catch(err) => {
-//       console.log("Error", err);
-//   });
-//   console.log("passed here 1");
+   qoldiq() {
+      console.log(`Hozir ${moment().format("HH-mm")} da, ${this.non} ta non, ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud`);
+   }
 
-   //asn/await 
-//async function run() {
-//  let javob = await maslahat_bering(25);
-//  console.log(javob);
-//  javob = await maslahat_bering(70);
-//  console.log(javob);
-//  javob = await maslahat_bering(41);
-//  console.log(javob);
-//}
+   sotish (product, son) {
+      if (product === "non") {
+         this.non -= son;
+      } else if (product === "lagmon") {
+         this.lagmon -= son;
+      } else if (product === "cola") {
+         this.cola -= this.cola;
+      }
+   }
 
-//run();
+   qabul (product, son) {
+      if (product === "non") {
+         this.non += son;
+      } else if (product === "lagmon") {
+         this.lagmon += son;
+      } else if (product === "cola") {
+         this.cola += son;
+      }
+   }
+}
 
-//B task
-//B-TASK: 
-
-//Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
-//MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
-
-function numberCounter(string) {
-    let count = 0;
-    for (let i = 0; i < string.length; i++) {
-       switch (string[i]) {
-        case '0': count ++;
-        break;
-        case '1': count ++;
-        break;
-        case '2': count ++;
-        break;
-        case '3': count ++;
-        break;
-        case '4': count ++;
-        break;
-        case '5': count ++;
-        break;
-        case '6': count ++;
-        break;
-        case '7': count ++;
-        break;
-        case '8': count ++;
-        break;
-        case '9': count ++;
-        break;
-       }
-    }
-    return count;
-}   
-console.log(numberCounter("ad2a54y79wet0sfgb9"));
-
+const myShop = new Shop(10, 20, 30);
+myShop.qoldiq();
+myShop.sotish("non", 3);
+myShop.qoldiq();
+myShop.qabul("cola", 5);
+myShop.qoldiq();
