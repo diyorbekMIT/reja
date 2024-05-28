@@ -41,4 +41,38 @@ document.addEventListener("click", function(e) {
                 });
         }
     }
+
+    if (e.target.classList.contains("edit-me")) {
+        let userInput = prompt(
+            "Ozgartirish kiriting",
+            e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+        );
+        if (userInput) {
+            const itemId = e.target.getAttribute("data-id");
+            axios.post("/edit-item", {
+                id: itemId,
+                new_input: userInput
+            })
+            .then((response) => {
+                console.log(response.data);
+                e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput;
+            })
+            .catch((err) => {
+                console.error("Error editing item:", err);
+                alert("Iltimos qaytatdan harakat qiling");
+            });
+        }
+    }
+});
+
+document.getElementById("clear-all").addEventListener("click", function() {
+    axios.post("/delete-all", { delete_all: true })
+        .then(response => {
+            alert(response.data.state);
+            document.getElementById("item-list").innerHTML = ""; // Clear the list without reload
+        })
+        .catch(err => {
+            console.error("Error clearing items:", err);
+            alert("Iltimos qaytatdan harakat qiling");
+        });
 });

@@ -1,4 +1,3 @@
-console.log("Web serverni boshlash");
 const express = require('express');
 const fs = require('fs');
 const mongoDB = require("mongodb");
@@ -70,6 +69,39 @@ app.post("/delete-item", (req, res) => {
             res.json({ success: true });
         }
     );
+});
+
+// POST request to edit item
+app.post("/edit-item", (req, res) => {
+    const id = req.body.id;
+    const newInput = req.body.new_input;
+    console.log("Editing item with ID:", id, "New input:", newInput);
+    db.collection("plans").findOneAndUpdate(
+        { _id: new mongoDB.ObjectID(id) },
+        { $set: { reja: newInput } },
+        (err, data) => {
+            if (err) {
+                console.error("Database error:", err);
+                return res.status(500).json({ error: "Database error" });
+            }
+            res.json({ success: true });
+        }
+    );
+});
+
+// POST request to delete all items
+app.post("/delete-all", (req, res) => {
+    if (req.body.delete_all) {
+        db.collection("plans").deleteMany({}, (err, result) => {
+            if (err) {
+                console.error("Database error:", err);
+                return res.status(500).json({ error: "Database error" });
+            }
+            res.json({ state: "Hamma rejalar ochirildi" });
+        });
+    } else {
+        res.status(400).json({ error: "Invalid request" });
+    }
 });
 
 // Export the app
